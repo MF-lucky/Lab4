@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF - 8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profiles</title>
+</head>
+
+<body>
+    <h1>User Profiles</h1>
+    <div id="profiles"></div>
+
+    <script>
+        fetch('userProfiles.json')
+           .then(response => {
+                if (!response.ok)
+                    throw new Error('Fetch error: ' + response.status);
+                else
+                    return response.json();
+            })
+           .then(json => {
+                const profiles = json.userProfiles;
+                const profilesDiv = document.getElementById('profiles');
+                profiles.forEach(profile => {
+                    const profileDiv = document.createElement('div');
+                    profileDiv.innerHTML = `
+                        <p><strong>First Name:</strong> ${profile.firstName}</p>
+                        <p><strong>Last Name:</strong> ${profile.lastName}</p>
+                        <p><strong>Email:</strong> ${profile.email}</p>
+                        <p><strong>Date of Birth:</strong> ${profile.dateOfBirth}</p>
+                        <p><strong>Address:</strong> ${profile.address.street}, ${profile.address.city}, ${profile.address.state} ${profile.address.zipCode}</p>
+                        <p><strong>User Preferences - Theme:</strong> ${profile.userPreferences.theme}</p>
+                        <p><strong>User Preferences - Language:</strong> ${profile.userPreferences.language}</p>
+                        <p><strong>User Preferences - Notifications:</strong> ${profile.userPreferences.notifications}</p>
+                        <p><strong>User Preferences - Subscription:</strong> ${profile.userPreferences.subscription}</p>
+                    `;
+                    profilesDiv.appendChild(profileDiv);
+                });
+            })
+           .catch(err => console.error('Fetch error: ' + err.message));
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,41 @@
+{
+    "userProfiles": [
+        {
+            "firstName": "Alice",
+            "lastName": "Johnson",
+            "email": "alice.johnson@example.com",
+            "dateOfBirth": "1985 - 03 - 15",
+            "userPreferences": {
+                "theme": "light",
+                "language": "French",
+                "notifications": "off",
+                "subscription": false
+            },
+            "address": {
+                "street": "456 Elm Street",
+                "city": "Springfield",
+                "state": "IL",
+                "zipCode": "62704"
+            }
+        },
+        
+        {
+            "firstName": "David",
+            "lastName": "Brown",
+            "email": "david.brown@example.com",
+            "dateOfBirth": "1995 - 02 - 10",
+            "userPreferences": {
+                "theme": "ocean",
+                "language": "Italian",
+                "notifications": "off",
+                "subscription": true
+            },
+            "address": {
+                "street": "202 Cedar Lane",
+                "city": "Miami",
+                "state": "FL",
+                "zipCode": "33101"
+            }
+        }
+    ]
+}
